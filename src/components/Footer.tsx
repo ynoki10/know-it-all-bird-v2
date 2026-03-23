@@ -7,11 +7,7 @@ const Footer = () => {
 
   return (
     <footer className="flex w-full flex-col items-center justify-center bg-palegreen pb-4 pt-2">
-      <button
-        type="button"
-        className="block"
-        onClick={() => setPage('top')}
-      >
+      <button type="button" className="block" onClick={() => setPage('top')}>
         <img
           className="block h-auto max-w-[128px]"
           src="/logo.png"

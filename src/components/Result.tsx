@@ -23,9 +23,7 @@ const Result = () => {
         width={202}
         height={248}
       />
-      <p className="whitespace-pre-wrap rounded-md border border-gray-600 p-2">
-        {result}
-      </p>
+      <p className="whitespace-pre-wrap rounded-md border border-gray-600 p-2">{result}</p>
       <Button text="もう一回" onClick={() => setPage('input')} />
     </>
   );

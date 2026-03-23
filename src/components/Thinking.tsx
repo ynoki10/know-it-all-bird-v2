@@ -49,13 +49,7 @@ const Thinking = () => {
             />
           )}
         </div>
-        <img
-          alt="文鳥さんのイラスト"
-          src="/bird_bunchou_white.png"
-          className="mx-auto"
-          width={140}
-          height={140}
-        />
+        <img alt="文鳥さんのイラスト" src="/bird_bunchou_white.png" className="mx-auto" width={140} height={140} />
       </div>
       <div>
         <p className="mt-4 text-center text-sm font-bold">文鳥さんが一生懸命考えています</p>

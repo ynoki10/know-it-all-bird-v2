@@ -3,10 +3,15 @@
 ## コマンド
 
 ```bash
-npm run dev      # 開発サーバー起動
-npm run build    # 本番ビルド（tsc + vite build）
-npm run preview  # ビルドプレビュー
-npm run lint     # ESLint
+npm run dev          # 開発サーバー起動
+npm run build        # 本番ビルド（tsc + vite build）
+npm run preview      # ビルドプレビュー
+npm run typecheck    # 型チェック（tsc）
+npm run lint         # Biome lint
+npm run format       # Biome format（自動修正）
+npm run format:check # Biome format（チェックのみ）
+npm run check        # Biome lint + format + import整理（自動修正）
+npm run check:ci     # CI用チェック（型チェック + Biome）
 ```
 
 ## 設計上の判断

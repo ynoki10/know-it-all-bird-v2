@@ -1,16 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  --color-palegreen: #D2E2CA;
-  --color-accent-orange: #E89924;
-  --color-button-gray: #E9E9E9;
-  --color-button-selected: #A9C6BF;
+  --color-palegreen: #d2e2ca;
+  --color-accent-orange: #e89924;
+  --color-button-gray: #e9e9e9;
+  --color-button-selected: #a9c6bf;
 
   --animate-blink: blink 2s infinite;
 
   @keyframes blink {
-    0%, 49% { opacity: 0; }
-    50%, 100% { opacity: 1; }
+    0%,
+    49% {
+      opacity: 0;
+    }
+    50%,
+    100% {
+      opacity: 1;
+    }
   }
 }
 

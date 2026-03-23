@@ -46,9 +46,7 @@ export class BuiltInAIProvider implements AIProvider {
       systemPrompt: SYSTEM_PROMPT,
     });
     try {
-      const result = await session.prompt(
-        `「${word}」ということわざについて教えて。`,
-      );
+      const result = await session.prompt(`「${word}」ということわざについて教えて。`);
       return result;
     } finally {
       session.destroy();

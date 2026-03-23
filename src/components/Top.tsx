@@ -9,13 +9,7 @@ const Top = () => {
   return (
     <>
       <h2 className="text-center text-2xl font-bold text-gray-900">ことわざにくわしい文鳥さん</h2>
-      <img
-        alt="文鳥さんのイラスト"
-        src="/bird_bunchou_white.png"
-        className="mx-auto"
-        width={140}
-        height={140}
-      />
+      <img alt="文鳥さんのイラスト" src="/bird_bunchou_white.png" className="mx-auto" width={140} height={140} />
       <p className="w-full">
         ことわざにくわしい文鳥さんにことわざについて教えてもらいましょう。
         <br />

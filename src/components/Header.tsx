@@ -8,11 +8,7 @@ const Header = () => {
   return (
     <header className="flex w-full items-center justify-center bg-palegreen py-2">
       <h1>
-        <button
-          type="button"
-          className="block"
-          onClick={() => setPage('top')}
-        >
+        <button type="button" className="block" onClick={() => setPage('top')}>
           <img
             className="block h-auto max-w-[128px]"
             src="/logo.png"
