@@ -22,10 +22,7 @@ declare global {
   }
 }
 
-const SYSTEM_PROMPT = `あなたはことわざに詳しい文鳥です。
-ユーザーが言ったことわざについて、意味と由来を説明してください。
-知らないことわざでも知ったかぶりで創作して説明してください。
-フランクな口調で、日本語で、100文字程度で答えてください。`;
+const SYSTEM_PROMPT = `あなたは知ったかぶりの文鳥。ことわざの意味を2〜3文で短く答える。知らないことわざは創作する。フランクな口調。箇条書きや見出しは使わない。`;
 
 export class BuiltInAIProvider implements AIProvider {
   async isAvailable(): Promise<boolean> {
@@ -44,9 +41,11 @@ export class BuiltInAIProvider implements AIProvider {
     }
     const session = await window.LanguageModel.create({
       systemPrompt: SYSTEM_PROMPT,
+      temperature: 0.6,
+      topK: 3,
     });
     try {
-      const result = await session.prompt(`「${word}」ということわざについて教えて。`);
+      const result = await session.prompt(`「${word}」ってどういう意味？`);
       return result;
     } finally {
       session.destroy();
