@@ -1,5 +1,5 @@
 ---
-description: ブランチ戦略と Conventional Commits 規約
+description: コード変更前に必ず確認 — feature ブランチ + worktree で作業すること（main 直接編集禁止）
 ---
 
 ## ブランチ戦略（GitHub Flow）

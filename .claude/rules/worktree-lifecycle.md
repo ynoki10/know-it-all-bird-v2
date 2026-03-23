@@ -1,5 +1,5 @@
 ---
-description: Worktree の作成・管理・削除ルール
+description: 新しい作業は .worktrees/ に worktree を作成してから開始すること
 ---
 
 ## Worktree のライフサイクル
