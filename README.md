@@ -1,73 +1,49 @@
-# React + TypeScript + Vite
+# ことわざにくわしい文鳥さん v2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+架空のことわざを入力すると、AIが創作の意味と由来をフランクな口調で説明するWebアプリ。
 
-Currently, two official plugins are available:
+## 技術スタック
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Vite** + **React 19** + **TypeScript**
+- **Tailwind CSS v4** （スタイリング）
+- **Jotai** （状態管理）
+- **Chrome Built-in AI** （Prompt API / Gemini Nano によるローカルLLM推論）
 
-## React Compiler
+## セットアップ
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## AI推論の前提条件
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+このアプリは Chrome Built-in AI（LanguageModel API）を使用します。
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Chrome 140 以降（デスクトップ版）が必要
+- `chrome://flags/#optimization-guide-on-device-model` を Enabled に設定
+- `chrome://flags/#prompt-api-for-gemini-nano` を Enabled に設定
+- 初回利用時はモデルのダウンロードが必要（`chrome://components` → Optimization Guide On Device Model）
+
+対応していないブラウザではフォールバックメッセージが表示されます。
+
+## 画面フロー
+
 ```
+Top → Input → Thinking → Result → Input（ループ）
+```
+
+- **Top**: アプリの説明とスタートボタン
+- **Input**: ことわざのプリセット選択（ランダム4択 × 2列）または自由入力（4〜12文字）
+- **Thinking**: AI生成中のローディングアニメーション
+- **Result**: AIの回答 + ランダム文鳥画像（7パターン）
+
+## ビルド
+
+```bash
+npm run build    # dist/ に静的ファイルを出力
+npm run preview  # ビルド成果物のプレビュー
+```
+
+出力は静的ファイルのみ。任意の静的サイトホスティング（Vercel, Cloudflare Pages, GitHub Pages 等）にデプロイ可能。
+
